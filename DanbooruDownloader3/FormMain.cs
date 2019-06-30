@@ -1,4 +1,4 @@
-﻿using DanbooruDownloader3.CustomControl;
+using DanbooruDownloader3.CustomControl;
 using DanbooruDownloader3.DAO;
 using DanbooruDownloader3.Engine;
 using DanbooruDownloader3.Entity;
@@ -117,20 +117,20 @@ namespace DanbooruDownloader3
             cbxRating.DisplayMember = "Key";
             cbxRating.ValueMember = "Value";
 
-            txtFilenameHelp.Text = "%provider% = provider Name" + Environment.NewLine +
-                                    "%id% = Image ID" + Environment.NewLine +
-                                    "%tags% = Image Tags" + Environment.NewLine +
-                                    "%rating% = Image Rating" + Environment.NewLine +
-                                    "%md5% = MD5 Hash" + Environment.NewLine +
-                                    "%artist% = Artist Tag" + Environment.NewLine +
-                                    "%copyright% = Copyright Tag" + Environment.NewLine +
-                                    "%character% = Character Tag" + Environment.NewLine +
-                                    "%circle% = Circle Tag" + Environment.NewLine +
-                                    "%faults% = Faults Tag" + Environment.NewLine +
-                                    "%general% = General Tag" + Environment.NewLine +
-                                    "%originalFilename% = Original Filename" + Environment.NewLine +
-                                    "%searchtag% = Search tag" + Environment.NewLine +
-                                    "%uploadDateTime% = Upload Date Time";
+            txtFilenameHelp.Text = "%provider% = " + strings.ProviderName + Environment.NewLine +
+                                    "%id% = " + strings.ImageId + Environment.NewLine +
+                                    "%tags% = " + strings.ImageTags + Environment.NewLine +
+                                    "%rating% = " + strings.ImageRating + Environment.NewLine +
+                                    "%md5% = " + strings.Md5Hash + Environment.NewLine +
+                                    "%artist% = " + strings.ArtistTag + Environment.NewLine +
+                                    "%copyright% = " + strings.CopyrightTag + Environment.NewLine +
+                                    "%character% = " + strings.CharacterTag + Environment.NewLine +
+                                    "%circle% = " + strings.CircleTag + Environment.NewLine +
+                                    "%faults% = " + strings.FaultsTag + Environment.NewLine +
+                                    "%general% = " + strings.GeneralTag + Environment.NewLine +
+                                    "%originalFilename% = " + strings.OriginalFilename + Environment.NewLine +
+                                    "%searchtag% = " + strings.SearchTag + Environment.NewLine +
+                                    "%uploadDateTime% = " + strings.UploadDateTime;
 
             pbLoading.Image = DanbooruDownloader3.Properties.Resources.AJAX_LOADING;
             _retry = Convert.ToInt32(txtRetry.Text);
@@ -163,9 +163,8 @@ namespace DanbooruDownloader3
         {
             if (!Helper.IsTagsXmlExist())
             {
-                string message = "No tags.xml, need to download!";
-                MessageBox.Show(message, "No tags.xml Error");
-                Program.Logger.Warn(message);
+                MessageBox.Show(strings.NoTagsError, strings.NoTagsErrorCaption);
+                Program.Logger.Warn("No tags.xml, need to download!");
                 btnUpdate_Click(sender, e);
             }
 
@@ -271,7 +270,7 @@ namespace DanbooruDownloader3
             }
             if (!String.IsNullOrWhiteSpace(post.Filename) && File.Exists(post.Filename))
             {
-                post.Progress = "File exists!";
+                post.Progress = strings.FileExists;
             }
 
             _downloadList.Add(post);
@@ -327,7 +326,7 @@ namespace DanbooruDownloader3
                     }
                     else
                     {
-                        dgvDownload.Rows[_downloadList.IndexOf(post)].Cells["colProgress2"].Value = "Failed to get Image Url, restricted tags?";
+                        dgvDownload.Rows[_downloadList.IndexOf(post)].Cells["colProgress2"].Value = strings.ImageUrlFailed;
                         UpdateLog("SankakuComplexParser", "Unable to get file_url for: " + post.Referer + " ==> Restricted tags?");
                     }
 
@@ -341,7 +340,7 @@ namespace DanbooruDownloader3
                     string html = e.Result;
                     post = GelbooruHtmlParser.ParsePost(post, html);
                     UpdateLog("GelbooruHtmlParser", "Resolved to file_url: " + post.FileUrl);
-                    dgvDownload.Rows[_downloadList.IndexOf(post)].Cells["colProgress2"].Value = "File url resolved!";
+                    dgvDownload.Rows[_downloadList.IndexOf(post)].Cells["colProgress2"].Value = strings.ImageUrlResolved;
                     post.Filename = MakeCompleteFilename(post, post.FileUrl);
                 }
                 else
@@ -379,20 +378,20 @@ namespace DanbooruDownloader3
 
                 if (_isPaused)
                 {
-                    DialogResult result = MessageBox.Show("Paused." + Environment.NewLine + "Click OK to continue.", "Download", MessageBoxButtons.OKCancel);
+                    DialogResult result = MessageBox.Show(strings.Canceled + Environment.NewLine + strings.OkContinue, "Download", MessageBoxButtons.OKCancel);
                     _isPaused = false;
                     btnPauseDownload.Enabled = true;
 
                     if (result.Equals(DialogResult.Cancel))
                     {
                         EnableDownloadControls(true);
-                        tsStatus.Text = "Canceled.";
+                        tsStatus.Text = strings.Canceled;
                         _isDownloading = false;
                         return;
                     }
                 }
 
-                tsStatus.Text = "Downloading Post #" + row.Index;
+                tsStatus.Text = strings.DownloadingPost + row.Index;
 
                 DanbooruPost post = _downloadList[row.Index];
 
@@ -413,18 +412,18 @@ namespace DanbooruDownloader3
                     if (url == Constants.LOADING_URL)
                     {
                         // still loading post url
-                        row.Cells["colProgress2"].Value = "Still loading post url, try again later.";
+                        row.Cells["colProgress2"].Value = strings.PostUrlStillLoading;
                         UpdateLog("[DownloadRow]", "Still loading post url, try again later.: " + row.Index);
                     }
                     else if (url == Constants.NO_POST_PARSER)
                     {
                         // no parser post url
-                        row.Cells["colProgress2"].Value = "No post parser for provider: " + post.Provider;
+                        row.Cells["colProgress2"].Value = strings.PostUrlNoParser + " " + post.Provider;
                         UpdateLog("[DownloadRow]", "No post parser for provider: " + post.Provider + " at : " + row.Index);
                     }
                     else if (post.Status == "deleted" && !chkProcessDeletedPost.Checked)
                     {
-                        row.Cells["colProgress2"].Value = "Post is deleted.";
+                        row.Cells["colProgress2"].Value = strings.PostUrlDeleted;
                         UpdateLog("[DownloadRow]", "Post is deleted for row: " + row.Index);
                     }
                     else if (!string.IsNullOrWhiteSpace(url) &&
@@ -445,7 +444,7 @@ namespace DanbooruDownloader3
                             var filename2 = filename + ".!tmp";
                             if (File.Exists(filename2))
                             {
-                                row.Cells["colProgress2"].Value = "Deleting temporary file: " + filename2;
+                                row.Cells["colProgress2"].Value = strings.DeletingTempFile + " " + filename2;
                                 File.Delete(filename2);
                             }
 
@@ -461,14 +460,14 @@ namespace DanbooruDownloader3
                         else
                         {
                             // File exist and overwrite is no checked.
-                            row.Cells["colProgress2"].Value = "File exists!";
+                            row.Cells["colProgress2"].Value = strings.FileExists;
                             UpdateLog("[DownloadRow]", "File exists: " + filename);
                         }
                     }
                     else
                     {
                         // no valid url
-                        row.Cells["colProgress2"].Value = "No valid file_url, probably deleted.";
+                        row.Cells["colProgress2"].Value = strings.PostUrlNoValid;
                         UpdateLog("[DownloadRow]", "No valid file_url for row: " + row.Index);
                     }
                 }
@@ -483,7 +482,7 @@ namespace DanbooruDownloader3
                     // no more row
                     _isPaused = false;
                     _isDownloading = false;
-                    ShowMessage("Download List", "Download Complete!");
+                    ShowMessage(strings.DownloadList, strings.DownloadComplete);
                     EnableDownloadControls(true);
                     tsProgress2.Visible = false;
                 }
@@ -521,8 +520,8 @@ namespace DanbooruDownloader3
 
                         if (chkAutoLoadNext.Checked)
                         {
-                            tsCount.Text = "| Count = " + (oldCount + _postsDao.Posts.Count);
-                            tsTotalCount.Text = "| Total Count = " + _postsDao.PostCount;
+                            tsCount.Text = "| " + strings.Count + " = " + (oldCount + _postsDao.Posts.Count);
+                            tsTotalCount.Text = "| " + strings.TotalCount + " = " + _postsDao.PostCount;
                             _currCount = postDao.Posts.Count; // only the new post
                         }
                     }
@@ -540,8 +539,8 @@ namespace DanbooruDownloader3
                     if (chkLoadPreview.Checked && !_clientThumb.IsBusy && !_isLoadingThumb) LoadThumbnailLater(0);
                 }
 
-                tsCount.Text = "| Count = " + _postsDao.Posts.Count;
-                tsTotalCount.Text = "| Total Count = " + postDao.PostCount;
+                tsCount.Text = "| " + strings.Count + " = " + _postsDao.Posts.Count;
+                tsTotalCount.Text = "| " + strings.TotalCount + " = " + postDao.PostCount;
                 _currCount = postDao.Posts.Count;
                 _isLoadingList = false;
             }
@@ -549,7 +548,7 @@ namespace DanbooruDownloader3
             {
                 _isMorePost = false;
                 _isLoadingList = false;
-                ShowMessage("Main", "No Posts!");
+                ShowMessage(strings.Main, strings.NoPosts);
             }
         }
 
@@ -647,7 +646,7 @@ namespace DanbooruDownloader3
                 {
                     if (!_isLoadingList && !_clientList.IsBusy)
                     {
-                        tsStatus.Text = "Loading next page...";
+                        tsStatus.Text = strings.LoadingNextPage;
                         doGetNextPage();
                     }
                 }
@@ -666,14 +665,14 @@ namespace DanbooruDownloader3
         public void PauseBatchJobs()
         {
             UpdateLog("[Batch Job]", "Pausing");
-            UpdateStatus2("Pausing...");
+            UpdateStatus2(strings.StatusPausing);
             _pauseEvent.Reset();
         }
 
         public void ResumeBatchJobs()
         {
             UpdateLog("[Batch Job]", "Resuming");
-            UpdateStatus2("Resuming...");
+            UpdateStatus2(strings.StatusResuming);
             _pauseEvent.Set();
         }
 
@@ -726,14 +725,15 @@ namespace DanbooruDownloader3
 
         private void btnPauseBatchJob_Click(object sender, EventArgs e)
         {
-            if (btnPauseBatchJob.Text == "Pause Batch Job")
+            // TODO: handle this toggle without relying on text value
+            if (btnPauseBatchJob.Text == strings.PauseBatch)
             {
-                btnPauseBatchJob.Text = "Resume Batch Job";
+                btnPauseBatchJob.Text = strings.ResumeBatch;
                 PauseBatchJobs();
             }
             else
             {
-                btnPauseBatchJob.Text = "Pause Batch Job";
+                btnPauseBatchJob.Text = strings.PauseBatch;
                 ResumeBatchJobs();
             }
         }
@@ -744,7 +744,7 @@ namespace DanbooruDownloader3
             {
                 StopBatchJobs();
                 btnStopBatchJob.Enabled = false;
-                tsStatus.Text = "Stopping Batch Jobs...";
+                tsStatus.Text = strings.BatchStopping;
                 //batchJobThread.Abort();
                 //ToggleBatchJobButton(true);
                 //dgvBatchJob.Refresh();
@@ -767,7 +767,7 @@ namespace DanbooruDownloader3
 
             if (batchJob != null)
             {
-                UpdateStatus2("Starting Batch Job");
+                UpdateStatus2(strings.BatchStarting);
 
                 for (int i = 0; i < batchJob.Count; i++)
                 {
@@ -792,7 +792,7 @@ namespace DanbooruDownloader3
                                 // toggle button
                                 BeginInvoke(bjd, new object[] { true });
                                 UpdateLog("DoBatchJob", "Batch Job Stopped.");
-                                UpdateStatus2("Batch Job Stopped.");
+                                UpdateStatus2(strings.BatchStopped);
                                 return;
                             }
 
@@ -844,7 +844,7 @@ namespace DanbooruDownloader3
                                 {
                                     // Cannot get list.
                                     UpdateLog("DoBatchJob", "Cannot load list");
-                                    batchJob[i].Status = "Cannot load list.";
+                                    batchJob[i].Status = strings.StatusCantLoadList;
                                     batchJob[i].isCompleted = false;
                                     batchJob[i].isError = true;
                                     flag = false;
@@ -853,7 +853,7 @@ namespace DanbooruDownloader3
                                 {
                                     // No more image
                                     UpdateLog("DoBatchJob", "No more image.");
-                                    batchJob[i].Status = "No more image.";
+                                    batchJob[i].Status = strings.StatusNoMoreImages;
                                     flag = false;
                                     //break;
                                 }
@@ -865,7 +865,7 @@ namespace DanbooruDownloader3
                                         if (prevDao.RawData != null && prevDao.RawData.Equals(d.RawData))
                                         {
                                             UpdateLog("DoBatchJob", "Identical list, probably last page.");
-                                            batchJob[i].Status = "Identical list, probably last page.";
+                                            batchJob[i].Status = strings.StatusIdenticalList;
                                             flag = false;
                                             //break;
                                         }
@@ -895,7 +895,7 @@ namespace DanbooruDownloader3
                                             // toggle button
                                             BeginInvoke(bjd, new object[] { true });
                                             UpdateLog("DoBatchJob", "Batch Job Stopped.");
-                                            UpdateStatus2("Batch Job Stopped.");
+                                            UpdateStatus2(strings.BatchStopped);
                                             return;
                                         }
 
@@ -1056,7 +1056,7 @@ namespace DanbooruDownloader3
                 }
             }
             BeginInvoke(bjd, new object[] { true });
-            UpdateStatus2("Batch Job Completed!", true);
+            UpdateStatus2(strings.BatchCompleted, true);
             {
                 // hide progress bar
                 object[] myArray = new object[2];
@@ -1089,7 +1089,7 @@ namespace DanbooruDownloader3
                 targetUrl = post.SampleUrl;
             }
 
-            currentJob.Status = "Downloading: " + targetUrl;
+            currentJob.Status = strings.DownloadingUrl + " " + targetUrl;
             BeginInvoke(del);
             //if (post.Provider == null) post.Provider = cbxProvider.Text;
             //if (post.Query == null) post.Query = txtQuery.Text;
@@ -1103,7 +1103,7 @@ namespace DanbooruDownloader3
                 ++skipCount;
                 ++currentJob.Skipped;
                 download = false;
-                UpdateLog("DoBatchJob", "Download skipped, contains blacklisted tag: " + post.Tags + " Url: " + targetUrl);
+                UpdateLog("DoBatchJob", String.Format(strings.SkippedBlacklistedTag, post.Tags) + " URL: " + targetUrl);
             }
 
             // Feature #95: filter by extensions
@@ -1118,14 +1118,14 @@ namespace DanbooruDownloader3
                     // skip if match
                     tempResult = !Regex.IsMatch(ext, currentJob.Filter);
                     if (!tempResult)
-                        UpdateLog("DoBatchJob", String.Format("Download skipped, file extension: {0} matching with filter: {1} (Exclude Mode) in url {2}.", ext, currentJob.Filter, targetUrl));
+                        UpdateLog("DoBatchJob", String.Format(strings.SkippedFilterExclude, ext, currentJob.Filter, targetUrl));
                 }
                 else
                 {
                     // download if match
                     tempResult = Regex.IsMatch(ext, currentJob.Filter);
                     if (!tempResult)
-                        UpdateLog("DoBatchJob", String.Format("Download skipped, file extension: {0} doesn't match with filter: {1} in url {2}.", ext, currentJob.Filter, targetUrl));
+                        UpdateLog("DoBatchJob", String.Format(strings.SkippedFilter, ext, currentJob.Filter, targetUrl));
                 }
                 download = tempResult;
             }
@@ -1144,7 +1144,7 @@ namespace DanbooruDownloader3
                     ++skipCount;
                     ++currentJob.Skipped;
                     download = false;
-                    UpdateLog("DoBatchJob", "Download skipped, file exists: " + filename);
+                    UpdateLog("DoBatchJob", strings.SkippedExists + " " + filename);
                 }
             }
             if (download && String.IsNullOrWhiteSpace(targetUrl))
@@ -1152,7 +1152,7 @@ namespace DanbooruDownloader3
                 ++skipCount;
                 ++currentJob.Skipped;
                 download = false;
-                UpdateLog("DoBatchJob", "Download skipped, ID: " + post.Id + " No file_url, probably deleted");
+                UpdateLog("DoBatchJob", strings.Skipped + " " + post.Id + " " + strings.PostUrlNoValid);
             }
             Uri uri = null;
             if (download && !Uri.TryCreate(targetUrl, UriKind.RelativeOrAbsolute, out uri))
@@ -1160,7 +1160,7 @@ namespace DanbooruDownloader3
                 ++skipCount;
                 ++currentJob.Skipped;
                 download = false;
-                UpdateLog("DoBatchJob", "Download skipped, ID: " + post.Id + " Invalid URL: " + targetUrl);
+                UpdateLog("DoBatchJob", strings.Skipped + " " + post.Id + " " + strings.InvalidUrl + " " + targetUrl);
             }
 
             #region download
@@ -1422,7 +1422,7 @@ namespace DanbooruDownloader3
             deleteToolStripMenuItem1.Enabled = enabled;
             if (enabled)
             {
-                btnPauseBatchJob.Text = "Pause Batch Job";
+                btnPauseBatchJob.Text = strings.PauseBatch;
             }
         }
 
@@ -1486,12 +1486,12 @@ namespace DanbooruDownloader3
             uint res = 0;
             if (!String.IsNullOrWhiteSpace(txtLimit.Text) && !UInt32.TryParse(txtLimit.Text, out res))
             {
-                MessageBox.Show("Invalid limit value = " + txtLimit.Text, "Image Limit");
+                MessageBox.Show(String.Format(strings.LimitInvalid, txtLimit.Text), strings.ImageLimit);
                 txtLimit.Text = "";
             }
             if (res > _currProvider.HardLimit)
             {
-                MessageBox.Show("Image limit too high! Setting back to " + _currProvider.HardLimit);
+                MessageBox.Show(String.Format(strings.LimitTooHigh, _currProvider.HardLimit), strings.ImageLimit);
                 txtLimit.Text = _currProvider.HardLimit.ToString();
             }
             UpdateStatus();
@@ -1502,7 +1502,7 @@ namespace DanbooruDownloader3
             uint res = 0;
             if (!String.IsNullOrWhiteSpace(txtPage.Text) && !UInt32.TryParse(txtPage.Text, out res))
             {
-                MessageBox.Show("Invalid page value = " + txtPage.Text, "List Page");
+                MessageBox.Show(String.Format(strings.InvalidPageValue, txtPage.Text), strings.ListPage);
                 if (_currProvider.BoardType == BoardType.Gelbooru)
                 {
                     txtPage.Text = "0";
@@ -1582,7 +1582,7 @@ namespace DanbooruDownloader3
         {
             if (txtFilenameFormat.Text.Any(x => { return ":*?\"<>|".Contains(x); }))
             {
-                MessageBox.Show("':*?\"<>|' characters in the filename format not allowed.");
+                MessageBox.Show(String.Format(strings.CharactersNotAllowed, "':*?\"<>|'"));
                 txtFilenameFormat.Focus();
             }
             else Properties.Settings.Default.Save();
@@ -1718,8 +1718,8 @@ namespace DanbooruDownloader3
                 {
                     var ok = false;
                     // Feature #79
-                    DialogResult result = MessageBox.Show(String.Format("Maximum filename length exceeding limit ({0}). This might cause the file cannot be saved, continue?", MAX_FILENAME_LENGTH),
-                                                "Warning", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show(String.Format(strings.MaxFilenameExceeded, MAX_FILENAME_LENGTH),
+                                                strings.Warning, MessageBoxButtons.YesNo);
 
                     // test if can create long file name
                     if (result == System.Windows.Forms.DialogResult.Yes)
@@ -1734,7 +1734,7 @@ namespace DanbooruDownloader3
                         }
                         catch (PathTooLongException ex)
                         {
-                            ShowMessage("Error", String.Format("Cannot create long file name {0}!\r\n{1}", i, ex.Message));
+                            ShowMessage(strings.Error, String.Format(strings.ErrorLongFileName, i, ex.Message));
                         }
                     }
 
@@ -1789,7 +1789,7 @@ namespace DanbooruDownloader3
                         }
                         else
                         {
-                            ShowMessage("Save Folder", "Please select save folder!");
+                            ShowMessage(strings.SaveFolder, strings.SelectSaveFolder);
                             return;
                         }
                     }
@@ -1801,7 +1801,7 @@ namespace DanbooruDownloader3
                 }
                 else
                 {
-                    ShowMessage("Download List", "No image to download!");
+                    ShowMessage(strings.DownloadList, strings.NoImageToDownload);
                 }
             }
         }
@@ -1895,7 +1895,7 @@ namespace DanbooruDownloader3
             }
             catch (Exception)
             {
-                MessageBox.Show("Invalid format.");
+                MessageBox.Show(strings.InvalidFormat);
                 txtRetry.Text = "5";
                 _retry = 5;
                 txtRetry.Focus();
@@ -1917,7 +1917,7 @@ namespace DanbooruDownloader3
         {
             if (dgvList.Rows.Count > 0)
             {
-                txtTags.Text = "parent:" + dgvList.CurrentRow.Cells["colId"].Value.ToString();
+                txtTags.Text = strings.Parent + dgvList.CurrentRow.Cells["colId"].Value.ToString();
             }
         }
 
@@ -1944,7 +1944,7 @@ namespace DanbooruDownloader3
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (_isDownloading)
-                if (MessageBox.Show("Still Downloading!", "Close Warning!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel) e.Cancel = true;
+                if (MessageBox.Show(strings.StillDownloading, strings.Warning, MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel) e.Cancel = true;
 
             if (chkSaveFolderWhenExit.Checked)
             {
@@ -2178,10 +2178,10 @@ namespace DanbooruDownloader3
                     break;
 
                 default:
-                    queryStr = "Invalid Prefered Method!";
+                    queryStr = strings.InvalidMethod;
                     break;
             }
-            tsStatus.Text = "Query URL: " + _currProvider.Url + queryStr.Replace("%_query%", txtQuery.Text);
+            tsStatus.Text = strings.QueryUrl + " " + _currProvider.Url + queryStr.Replace("%_query%", txtQuery.Text);
             tsStatus.Text = tsStatus.Text.Replace("&", "&&");
         }
 
@@ -2440,7 +2440,7 @@ namespace DanbooruDownloader3
             int i;
             if (!Int32.TryParse(txtArtistTagGrouping.Text, out i))
             {
-                MessageBox.Show("Invalid value: " + txtArtistTagGrouping.Text, "txtArtistTagGrouping");
+                MessageBox.Show(strings.InvalidValue + " " + txtArtistTagGrouping.Text, strings.ArtistTag);
                 txtArtistTagGrouping.Text = "5";
             }
         }
@@ -2450,7 +2450,7 @@ namespace DanbooruDownloader3
             int i;
             if (!Int32.TryParse(txtCopyTagGrouping.Text, out i))
             {
-                MessageBox.Show("Invalid value: " + txtCopyTagGrouping.Text, "txtCopyTagGrouping");
+                MessageBox.Show(strings.InvalidValue + " " + txtCopyTagGrouping.Text, strings.CopyrightTag);
                 txtCopyTagGrouping.Text = "5";
             }
         }
@@ -2460,7 +2460,7 @@ namespace DanbooruDownloader3
             int i;
             if (!Int32.TryParse(txtCharaTagGrouping.Text, out i))
             {
-                MessageBox.Show("Invalid value: " + txtCharaTagGrouping.Text, "txtCharaTagGrouping");
+                MessageBox.Show(strings.InvalidValue + " " + txtCharaTagGrouping.Text, strings.CharacterTag);
                 txtCharaTagGrouping.Text = "5";
             }
         }
@@ -2470,7 +2470,7 @@ namespace DanbooruDownloader3
             int i;
             if (!Int32.TryParse(txtCircleTagGrouping.Text, out i))
             {
-                MessageBox.Show("Invalid value: " + txtCircleTagGrouping.Text, "txtCircleTagGrouping");
+                MessageBox.Show(strings.InvalidValue + " " + txtCircleTagGrouping.Text, strings.CircleTag);
                 txtCircleTagGrouping.Text = "5";
             }
         }
@@ -2480,7 +2480,7 @@ namespace DanbooruDownloader3
             int i;
             if (!Int32.TryParse(txtFaultsTagGrouping.Text, out i))
             {
-                MessageBox.Show("Invalid value: " + txtFaultsTagGrouping.Text, "txtFaultsTagGrouping");
+                MessageBox.Show(strings.InvalidValue + " " + txtFaultsTagGrouping.Text, strings.FaultsTag);
                 txtFaultsTagGrouping.Text = "5";
             }
         }
@@ -2500,7 +2500,7 @@ namespace DanbooruDownloader3
             }
             else
             {
-                MessageBox.Show("Invalid Port Number: " + txtProxyPort.Text, "Error Parsing Port", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(strings.InvalidPortNumber + " " + txtProxyPort.Text, strings.ErrorParsingPort, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtProxyPort.SelectAll();
                 txtProxyPort.Focus();
             }
@@ -2550,7 +2550,7 @@ namespace DanbooruDownloader3
                         {
                             if ((_currProvider.BoardType == BoardType.Gelbooru && page == 0) || page == 1)
                             {
-                                MessageBox.Show("First Page!", "Prev Page");
+                                MessageBox.Show(strings.ErrorFirstPage, strings.PrevPage);
                                 return;
                             }
                             if (_currProvider.BoardType == BoardType.Gelbooru && _currProvider.Preferred == PreferredMethod.Html)
@@ -2565,7 +2565,7 @@ namespace DanbooruDownloader3
                         }
                         else
                         {
-                            MessageBox.Show("No previous page information", "Prev Page");
+                            MessageBox.Show(strings.ErrorPrevPageInfo, strings.PrevPage);
                             return;
                         }
                         txtPage.Text = page.ToString();
@@ -2618,7 +2618,7 @@ namespace DanbooruDownloader3
             }
             catch (Exception)
             {
-                MessageBox.Show("Invalid format.");
+                MessageBox.Show(strings.InvalidFormat);
                 txtDelay.Text = "10";
                 _delay = 10;
                 txtDelay.Focus();
@@ -2733,7 +2733,7 @@ namespace DanbooruDownloader3
         {
             if (dgvDownload.SelectedRows.Count > 5)
             {
-                var result = MessageBox.Show("You are going to open too many images (>5), proceed?", "Warning", MessageBoxButtons.OKCancel);
+                var result = MessageBox.Show(strings.WarningManyImages, strings.Warning, MessageBoxButtons.OKCancel);
                 if (result == System.Windows.Forms.DialogResult.Cancel)
                     return;
             }

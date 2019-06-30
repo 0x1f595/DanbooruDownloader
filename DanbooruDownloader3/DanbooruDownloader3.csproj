@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <OSVersion />
@@ -175,6 +175,11 @@
     <Compile Include="CustomControl\ExtendedWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="DAO\DanbooruProviderDao.cs" />
     <Compile Include="Entity\DanbooruProvider.cs" />
@@ -216,6 +221,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DanbooruDownloader3_TemporaryKey.pfx" />
     <None Include="packages.config" />

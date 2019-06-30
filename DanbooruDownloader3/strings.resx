@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArtistTag" xml:space="preserve">
+    <value>Artist Tag</value>
+  </data>
+  <data name="BatchCompleted" xml:space="preserve">
+    <value>Batch job completed!</value>
+  </data>
+  <data name="BatchStarting" xml:space="preserve">
+    <value>Starting batch job</value>
+  </data>
+  <data name="BatchStopped" xml:space="preserve">
+    <value>Batch job stopped.</value>
+  </data>
+  <data name="BatchStopping" xml:space="preserve">
+    <value>Stopping batch jobs...</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>Canceled</value>
+  </data>
+  <data name="CharactersNotAllowed" xml:space="preserve">
+    <value>{0} characters in the filename format not allowed.</value>
+  </data>
+  <data name="CharacterTag" xml:space="preserve">
+    <value>Character Tag</value>
+  </data>
+  <data name="CircleTag" xml:space="preserve">
+    <value>Circle Tag</value>
+  </data>
+  <data name="CopyrightTag" xml:space="preserve">
+    <value>Copyright Tag</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="DeletingTempFile" xml:space="preserve">
+    <value>Deleting temporary file:</value>
+  </data>
+  <data name="DownloadComplete" xml:space="preserve">
+    <value>Download complete!</value>
+  </data>
+  <data name="DownloadingPost" xml:space="preserve">
+    <value>Downloading post #</value>
+  </data>
+  <data name="DownloadingUrl" xml:space="preserve">
+    <value>Downloading:</value>
+  </data>
+  <data name="DownloadList" xml:space="preserve">
+    <value>Download List</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ErrorFirstPage" xml:space="preserve">
+    <value>Already on first page!</value>
+  </data>
+  <data name="ErrorLongFileName" xml:space="preserve">
+    <value>Cannot create long file name {0}!\r\n{1}</value>
+  </data>
+  <data name="ErrorParsingPort" xml:space="preserve">
+    <value>Error Parsing Port</value>
+  </data>
+  <data name="ErrorPrevPageInfo" xml:space="preserve">
+    <value>No previous page information.</value>
+  </data>
+  <data name="FaultsTag" xml:space="preserve">
+    <value>Faults Tag</value>
+  </data>
+  <data name="FileExists" xml:space="preserve">
+    <value>File exists!</value>
+  </data>
+  <data name="GeneralTag" xml:space="preserve">
+    <value>General Tag</value>
+  </data>
+  <data name="ImageId" xml:space="preserve">
+    <value>Image ID</value>
+  </data>
+  <data name="ImageLimit" xml:space="preserve">
+    <value>Image Limit</value>
+  </data>
+  <data name="ImageRating" xml:space="preserve">
+    <value>Image Rating</value>
+  </data>
+  <data name="ImageTags" xml:space="preserve">
+    <value>Image Tags</value>
+  </data>
+  <data name="ImageUrlFailed" xml:space="preserve">
+    <value>Failed to get Image URL, restricted tags?</value>
+  </data>
+  <data name="ImageUrlResolved" xml:space="preserve">
+    <value>File URL resolved!</value>
+  </data>
+  <data name="InvalidFormat" xml:space="preserve">
+    <value>Invalid format.</value>
+  </data>
+  <data name="InvalidMethod" xml:space="preserve">
+    <value>Invalid preferred method!</value>
+  </data>
+  <data name="InvalidPageValue" xml:space="preserve">
+    <value>Invalid page value: {0}</value>
+  </data>
+  <data name="InvalidPortNumber" xml:space="preserve">
+    <value>Invalid Port Number:</value>
+  </data>
+  <data name="InvalidUrl" xml:space="preserve">
+    <value>Invalid URL:</value>
+  </data>
+  <data name="InvalidValue" xml:space="preserve">
+    <value>Invalid value:</value>
+  </data>
+  <data name="LimitInvalid" xml:space="preserve">
+    <value>Invalid limit value: {0}</value>
+  </data>
+  <data name="LimitTooHigh" xml:space="preserve">
+    <value>Image limit too high! Setting back to {0}.</value>
+  </data>
+  <data name="ListPage" xml:space="preserve">
+    <value>List Page</value>
+  </data>
+  <data name="LoadingNextPage" xml:space="preserve">
+    <value>Loading next page...</value>
+  </data>
+  <data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="MaxFilenameExceeded" xml:space="preserve">
+    <value>Maximum filename length exceeding limit ({0}). This might cause the file cannot be saved, continue?</value>
+  </data>
+  <data name="Md5Hash" xml:space="preserve">
+    <value>MD5 Hash</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="NoImageToDownload" xml:space="preserve">
+    <value>No image to download!</value>
+  </data>
+  <data name="NoPosts" xml:space="preserve">
+    <value>No posts!</value>
+  </data>
+  <data name="NoTagsError" xml:space="preserve">
+    <value>No tags.xml, need to download!</value>
+  </data>
+  <data name="NoTagsErrorCaption" xml:space="preserve">
+    <value>No tags.xml Error</value>
+  </data>
+  <data name="OkContinue" xml:space="preserve">
+    <value>Click OK to continue.</value>
+  </data>
+  <data name="OriginalFilename" xml:space="preserve">
+    <value>Original Filename</value>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>Parent:</value>
+  </data>
+  <data name="PauseBatch" xml:space="preserve">
+    <value>Pause Batch Job</value>
+  </data>
+  <data name="Paused" xml:space="preserve">
+    <value>Paused</value>
+  </data>
+  <data name="PostUrlDeleted" xml:space="preserve">
+    <value>Post is deleted.</value>
+  </data>
+  <data name="PostUrlNoParser" xml:space="preserve">
+    <value>No post parser for provider:</value>
+  </data>
+  <data name="PostUrlNoValid" xml:space="preserve">
+    <value>No valid file_url, probably deleted.</value>
+  </data>
+  <data name="PostUrlStillLoading" xml:space="preserve">
+    <value>Still loading post url, try again later.</value>
+  </data>
+  <data name="PrevPage" xml:space="preserve">
+    <value>Prev Page</value>
+  </data>
+  <data name="ProviderName" xml:space="preserve">
+    <value>Provider Name</value>
+  </data>
+  <data name="QueryUrl" xml:space="preserve">
+    <value>Query URL:</value>
+  </data>
+  <data name="ResumeBatch" xml:space="preserve">
+    <value>Resume Batch Job</value>
+  </data>
+  <data name="SaveFolder" xml:space="preserve">
+    <value>Save Folder</value>
+  </data>
+  <data name="SearchTag" xml:space="preserve">
+    <value>Search Tag</value>
+  </data>
+  <data name="SelectSaveFolder" xml:space="preserve">
+    <value>Please select save folder!</value>
+  </data>
+  <data name="Skipped" xml:space="preserve">
+    <value>Download skipped, ID:</value>
+  </data>
+  <data name="SkippedBlacklistedTag" xml:space="preserve">
+    <value>Download skipped, contains blacklisted tag: {0}</value>
+  </data>
+  <data name="SkippedExists" xml:space="preserve">
+    <value>Download skipped, file exists:</value>
+  </data>
+  <data name="SkippedFilter" xml:space="preserve">
+    <value>Download skipped, file extension: {0} doesn't match with filter: {1} in url {2}.</value>
+  </data>
+  <data name="SkippedFilterExclude" xml:space="preserve">
+    <value>Download skipped, file extension: {0} matching with filter: {1} (Exclude Mode) in url {2}.</value>
+  </data>
+  <data name="StatusCantLoadList" xml:space="preserve">
+    <value>Cannot load list.</value>
+  </data>
+  <data name="StatusIdenticalList" xml:space="preserve">
+    <value>Identical list, probably last page.</value>
+  </data>
+  <data name="StatusNoMoreImages" xml:space="preserve">
+    <value>No more images.</value>
+  </data>
+  <data name="StatusPausing" xml:space="preserve">
+    <value>Pausing...</value>
+  </data>
+  <data name="StatusResuming" xml:space="preserve">
+    <value>Resuming...</value>
+  </data>
+  <data name="StillDownloading" xml:space="preserve">
+    <value>Still downloading!</value>
+  </data>
+  <data name="TotalCount" xml:space="preserve">
+    <value>Total Count</value>
+  </data>
+  <data name="UploadDateTime" xml:space="preserve">
+    <value>Upload Date/Time</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="WarningManyImages" xml:space="preserve">
+    <value>You are going to open too many images (&gt;5), proceed?</value>
+  </data>
+</root>
