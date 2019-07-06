@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDownloadTags));
             this.btnDownload = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUrl = new System.Windows.Forms.TextBox();
@@ -46,137 +47,83 @@
             // 
             // btnDownload
             // 
-            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownload.Location = new System.Drawing.Point(513, 7);
+            resources.ApplyResources(this.btnDownload, "btnDownload");
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(75, 23);
-            this.btnDownload.TabIndex = 0;
-            this.btnDownload.Text = "Download";
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "URL";
             // 
             // txtUrl
             // 
-            this.txtUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUrl.Location = new System.Drawing.Point(194, 9);
+            resources.ApplyResources(this.txtUrl, "txtUrl");
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(291, 20);
-            this.txtUrl.TabIndex = 2;
             // 
             // progressBar1
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(15, 40);
+            resources.ApplyResources(this.progressBar1, "progressBar1");
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(573, 23);
-            this.progressBar1.TabIndex = 3;
             // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(12, 89);
+            resources.ApplyResources(this.lblStatus, "lblStatus");
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(74, 13);
-            this.lblStatus.TabIndex = 4;
-            this.lblStatus.Text = "Status: Ready";
             // 
             // cbxProvider
             // 
             this.cbxProvider.FormattingEnabled = true;
-            this.cbxProvider.Location = new System.Drawing.Point(47, 8);
+            resources.ApplyResources(this.cbxProvider, "cbxProvider");
             this.cbxProvider.Name = "cbxProvider";
-            this.cbxProvider.Size = new System.Drawing.Size(141, 21);
-            this.cbxProvider.TabIndex = 5;
             this.cbxProvider.SelectedIndexChanged += new System.EventHandler(this.cbxProvider_SelectedIndexChanged);
             // 
             // chkAutoClose
             // 
-            this.chkAutoClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkAutoClose.AutoSize = true;
-            this.chkAutoClose.Location = new System.Drawing.Point(511, 69);
+            resources.ApplyResources(this.chkAutoClose, "chkAutoClose");
             this.chkAutoClose.Name = "chkAutoClose";
-            this.chkAutoClose.Size = new System.Drawing.Size(77, 17);
-            this.chkAutoClose.TabIndex = 6;
-            this.chkAutoClose.Text = "Auto Close";
             this.chkAutoClose.UseVisualStyleBackColor = true;
             // 
             // chkBackup
             // 
-            this.chkBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkBackup.AutoSize = true;
-            this.chkBackup.Location = new System.Drawing.Point(403, 69);
+            resources.ApplyResources(this.chkBackup, "chkBackup");
             this.chkBackup.Name = "chkBackup";
-            this.chkBackup.Size = new System.Drawing.Size(104, 17);
-            this.chkBackup.TabIndex = 7;
-            this.chkBackup.Text = "Backup tags.xml";
             this.chkBackup.UseVisualStyleBackColor = true;
             // 
             // chkMerge
             // 
-            this.chkMerge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkMerge.AutoSize = true;
-            this.chkMerge.Location = new System.Drawing.Point(341, 69);
+            resources.ApplyResources(this.chkMerge, "chkMerge");
             this.chkMerge.Name = "chkMerge";
-            this.chkMerge.Size = new System.Drawing.Size(56, 17);
-            this.chkMerge.TabIndex = 8;
-            this.chkMerge.Text = "Merge";
             this.chkMerge.UseVisualStyleBackColor = true;
             // 
             // pbIcon
             // 
-            this.pbIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbIcon.Location = new System.Drawing.Point(491, 11);
+            resources.ApplyResources(this.pbIcon, "pbIcon");
             this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(16, 16);
-            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbIcon.TabIndex = 9;
             this.pbIcon.TabStop = false;
             // 
             // chkUseLoop
             // 
-            this.chkUseLoop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkUseLoop.AutoSize = true;
-            this.chkUseLoop.Location = new System.Drawing.Point(15, 69);
+            resources.ApplyResources(this.chkUseLoop, "chkUseLoop");
             this.chkUseLoop.Name = "chkUseLoop";
-            this.chkUseLoop.Size = new System.Drawing.Size(72, 17);
-            this.chkUseLoop.TabIndex = 10;
-            this.chkUseLoop.Text = "Use Loop";
             this.chkUseLoop.UseVisualStyleBackColor = true;
             this.chkUseLoop.CheckedChanged += new System.EventHandler(this.chkUseLoop_CheckedChanged);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 70);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Starting Page";
             // 
             // txtStartingPage
             // 
-            this.txtStartingPage.Location = new System.Drawing.Point(170, 67);
+            resources.ApplyResources(this.txtStartingPage, "txtStartingPage");
             this.txtStartingPage.Name = "txtStartingPage";
-            this.txtStartingPage.Size = new System.Drawing.Size(42, 20);
-            this.txtStartingPage.TabIndex = 12;
-            this.txtStartingPage.Text = "1";
             // 
             // FormDownloadTags
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 112);
             this.Controls.Add(this.txtStartingPage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.chkUseLoop);
@@ -193,8 +140,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FormDownloadTags";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Download Tags";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDownloadTags_FormClosing);
             this.Load += new System.EventHandler(this.FormDownloadTags_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).EndInit();

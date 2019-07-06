@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddBatchJob));
             this.label1 = new System.Windows.Forms.Label();
             this.txtTagQuery = new System.Windows.Forms.TextBox();
             this.txtLimit = new System.Windows.Forms.TextBox();
@@ -51,210 +52,117 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tag Query";
             // 
             // txtTagQuery
             // 
-            this.txtTagQuery.Location = new System.Drawing.Point(109, 15);
-            this.txtTagQuery.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.txtTagQuery, "txtTagQuery");
             this.txtTagQuery.Name = "txtTagQuery";
-            this.txtTagQuery.Size = new System.Drawing.Size(551, 22);
-            this.txtTagQuery.TabIndex = 1;
             // 
             // txtLimit
             // 
-            this.txtLimit.Location = new System.Drawing.Point(109, 47);
-            this.txtLimit.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.txtLimit, "txtLimit");
             this.txtLimit.Name = "txtLimit";
-            this.txtLimit.Size = new System.Drawing.Size(99, 22);
-            this.txtLimit.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 50);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Limit";
             // 
             // pnlProvider
             // 
-            this.pnlProvider.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlProvider.AutoScroll = true;
-            this.pnlProvider.AutoSize = true;
-            this.pnlProvider.Location = new System.Drawing.Point(109, 79);
-            this.pnlProvider.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.pnlProvider, "pnlProvider");
             this.pnlProvider.Name = "pnlProvider";
-            this.pnlProvider.Size = new System.Drawing.Size(800, 111);
-            this.pnlProvider.TabIndex = 4;
             this.pnlProvider.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlProvider_ControlAdded);
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(16, 103);
-            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.btnSelectAll, "btnSelectAll");
             this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(85, 86);
-            this.btnSelectAll.TabIndex = 0;
-            this.btnSelectAll.Text = "Select All";
             this.btnSelectAll.UseVisualStyleBackColor = true;
             this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(811, 234);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 28);
-            this.btnOK.TabIndex = 5;
-            this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(703, 234);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 84);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "provider";
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 205);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Filename Format";
             // 
             // txtPage
             // 
-            this.txtPage.Location = new System.Drawing.Point(301, 47);
-            this.txtPage.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.txtPage, "txtPage");
             this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(99, 22);
-            this.txtPage.TabIndex = 11;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(217, 50);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Start Page";
             // 
             // chkNotRating
             // 
-            this.chkNotRating.AutoSize = true;
-            this.chkNotRating.Location = new System.Drawing.Point(604, 49);
-            this.chkNotRating.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.chkNotRating, "chkNotRating");
             this.chkNotRating.Name = "chkNotRating";
-            this.chkNotRating.Size = new System.Drawing.Size(52, 21);
-            this.chkNotRating.TabIndex = 19;
-            this.chkNotRating.Text = "Not";
             this.chkNotRating.UseVisualStyleBackColor = true;
             // 
             // cbxRating
             // 
             this.cbxRating.FormattingEnabled = true;
-            this.cbxRating.Location = new System.Drawing.Point(468, 47);
-            this.cbxRating.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.cbxRating, "cbxRating");
             this.cbxRating.Name = "cbxRating";
-            this.cbxRating.Size = new System.Drawing.Size(127, 24);
-            this.cbxRating.TabIndex = 18;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(409, 50);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 17);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Rating";
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 234);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 17);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Filter Extension";
             // 
             // txtFilter
             // 
-            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.txtFilter, "txtFilter");
             this.txtFilter.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::DanbooruDownloader3.Properties.Settings.Default, "filterExtensions", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtFilter.Location = new System.Drawing.Point(137, 231);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(208, 22);
-            this.txtFilter.TabIndex = 21;
             this.txtFilter.Text = global::DanbooruDownloader3.Properties.Settings.Default.filterExtensions;
             // 
             // txtFilenameFormat
             // 
-            this.txtFilenameFormat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.txtFilenameFormat, "txtFilenameFormat");
             this.txtFilenameFormat.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::DanbooruDownloader3.Properties.Settings.Default, "filenameFormat", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.txtFilenameFormat.Location = new System.Drawing.Point(137, 202);
-            this.txtFilenameFormat.Margin = new System.Windows.Forms.Padding(4);
             this.txtFilenameFormat.Name = "txtFilenameFormat";
-            this.txtFilenameFormat.Size = new System.Drawing.Size(773, 22);
-            this.txtFilenameFormat.TabIndex = 9;
             this.txtFilenameFormat.Text = global::DanbooruDownloader3.Properties.Settings.Default.filenameFormat;
             // 
             // chkIsExclude
             // 
-            this.chkIsExclude.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkIsExclude.AutoSize = true;
-            this.chkIsExclude.Location = new System.Drawing.Point(353, 233);
-            this.chkIsExclude.Margin = new System.Windows.Forms.Padding(4);
+            resources.ApplyResources(this.chkIsExclude, "chkIsExclude");
             this.chkIsExclude.Name = "chkIsExclude";
-            this.chkIsExclude.Size = new System.Drawing.Size(118, 21);
-            this.chkIsExclude.TabIndex = 22;
-            this.chkIsExclude.Text = "Exclude Mode";
             this.chkIsExclude.UseVisualStyleBackColor = true;
             // 
             // FormAddBatchJob
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 277);
             this.Controls.Add(this.chkIsExclude);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.label6);
@@ -274,10 +182,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTagQuery);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAddBatchJob";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormAddBatchJob";
             this.Load += new System.EventHandler(this.FormAddBatchJob_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

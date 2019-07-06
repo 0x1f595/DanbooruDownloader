@@ -77,7 +77,7 @@ namespace DanbooruDownloader3
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error at Limit." + Environment.NewLine + ex.Message);
+                            MessageBox.Show(strings.ErrorAtLimit + Environment.NewLine + ex.Message);
                             txtLimit.Focus();
                             txtLimit.SelectAll();
                             return;
@@ -90,7 +90,7 @@ namespace DanbooruDownloader3
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error at StartPage." + Environment.NewLine + ex.Message);
+                            MessageBox.Show(strings.ErrorAtStartPage + Environment.NewLine + ex.Message);
                             txtPage.Focus();
                             txtPage.SelectAll();
                             return;
@@ -104,7 +104,7 @@ namespace DanbooruDownloader3
 
                         if (string.IsNullOrWhiteSpace(txtFilenameFormat.Text))
                         {
-                            MessageBox.Show("Filename Format is empty!");
+                            MessageBox.Show(strings.ErrorFilenameFormat);
                             txtFilenameFormat.Focus();
                             return;
                         }
@@ -118,7 +118,7 @@ namespace DanbooruDownloader3
             }
             if (!providerFlag)
             {
-                MessageBox.Show("Please select at least 1 provider.");
+                MessageBox.Show(strings.ErrorNoProvider);
                 pnlProvider.Focus();
                 this.DialogResult = DialogResult.None;
                 this.Jobs = null;

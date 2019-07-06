@@ -212,7 +212,7 @@ namespace DanbooruDownloader3
                 sleepTime = Int32.Parse(DanbooruDownloader3.Properties.Settings.Default.delay);
             }
 
-            lblStatus.Text = string.Format("Status: Waiting for {0}s", sleepTime);
+            lblStatus.Text = string.Format(strings.StatusWaiting, sleepTime);
             for (int i = 0; i < sleepTime; ++i)
             {
                 for (int j = 1; j <= 10; ++j)
@@ -220,7 +220,7 @@ namespace DanbooruDownloader3
                     if (isClosing)
                         return;
 
-                    lblStatus.Text = string.Format("Status:{0}. Waiting for {1} of {2}s", message, i, sleepTime);
+                    lblStatus.Text = string.Format(strings.StatusWaiting2, message, i, sleepTime);
                     Application.DoEvents();
                     Thread.Sleep(100);
                 }
@@ -261,7 +261,7 @@ namespace DanbooruDownloader3
             if (chkMerge.Checked)
             {
                 Program.Logger.Debug("[Download Tags] Merging...");
-                lblStatus.Text = "Status: Merging..., this might take some times.";
+                lblStatus.Text = strings.StatusMerging;
                 lblStatus.Invalidate();
                 lblStatus.Update();
                 lblStatus.Refresh();
@@ -275,7 +275,7 @@ namespace DanbooruDownloader3
 
             DanbooruTagsDao.Instance = new DanbooruTagsDao(TAGS_FILENAME);
             Program.Logger.Info("[Download Tags] Complete.");
-            lblStatus.Text = "Status: Download complete.";
+            lblStatus.Text = strings.StatusDownloadComplete;
             if (chkAutoClose.Checked)
             {
                 this.Close();
@@ -348,7 +348,7 @@ namespace DanbooruDownloader3
                 if (chkMerge.Checked)
                 {
                     Program.Logger.Debug("[Download Tags] Merging Old Tags.");
-                    lblStatus.Text = "Status: Merging Old Tags, this might take some times.";
+                    lblStatus.Text = strings.StatusMerging;
                     lblStatus.Invalidate();
                     lblStatus.Update();
                     lblStatus.Refresh();
@@ -358,7 +358,7 @@ namespace DanbooruDownloader3
                     var message = DanbooruTagsDao.Merge(TAGS_FILENAME + ".merge", TAGS_FILENAME);
 
                     Program.Logger.Info("[Download Tags] " + message);
-                    MessageBox.Show(message, "Tags.xml merged.");
+                    MessageBox.Show(message, strings.TagsMerged);
 
                     File.Delete(TAGS_FILENAME + ".merge");
                 }
@@ -370,7 +370,7 @@ namespace DanbooruDownloader3
 
                 DanbooruTagsDao.Instance = new DanbooruTagsDao(TAGS_FILENAME);
                 Program.Logger.Info("[Download Tags] Complete.");
-                lblStatus.Text = "Status: Download complete.";
+                lblStatus.Text = strings.StatusDownloadComplete;
                 if (chkAutoClose.Checked)
                 {
                     this.Close();
@@ -391,7 +391,7 @@ namespace DanbooruDownloader3
             for (int i = 1; i < lastPage; ++i)
             {
                 Program.Logger.Debug("[Download Tags] Merging Page: " + i);
-                lblStatus.Text = "Status: Merging Page: " + i + ", this might take some times.";
+                lblStatus.Text = String.Format(strings.StatusMergingPage, i);
                 lblStatus.Invalidate();
                 lblStatus.Update();
                 lblStatus.Refresh();

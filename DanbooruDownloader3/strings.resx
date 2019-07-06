@@ -354,4 +354,34 @@
   <data name="WarningManyImages" xml:space="preserve">
     <value>You are going to open too many images (&gt;5), proceed?</value>
   </data>
+  <data name="ErrorAtLimit" xml:space="preserve">
+    <value>Error at Limit.</value>
+  </data>
+  <data name="ErrorAtStartPage" xml:space="preserve">
+    <value>Error at Start Page.</value>
+  </data>
+  <data name="ErrorFilenameFormat" xml:space="preserve">
+    <value>Filename format is empty!</value>
+  </data>
+  <data name="ErrorNoProvider" xml:space="preserve">
+    <value>Please select at least 1 provider.</value>
+  </data>
+  <data name="StatusDownloadComplete" xml:space="preserve">
+    <value>Status: Download complete.</value>
+  </data>
+  <data name="StatusMerging" xml:space="preserve">
+    <value>Status: Merging... this might take some time.</value>
+  </data>
+  <data name="StatusMergingPage" xml:space="preserve">
+    <value>Status: Merging Page {0}, this might take some time.</value>
+  </data>
+  <data name="StatusWaiting" xml:space="preserve">
+    <value>Status: Waiting for {0}s</value>
+  </data>
+  <data name="StatusWaiting2" xml:space="preserve">
+    <value>Status: {0}. Waiting for {1} of {2}s</value>
+  </data>
+  <data name="TagsMerged" xml:space="preserve">
+    <value>Tags.xml merged.</value>
+  </data>
 </root>
